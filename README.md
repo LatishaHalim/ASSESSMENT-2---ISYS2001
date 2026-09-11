@@ -1,1 +1,3 @@
-# ASSESSMENT-2---ISYS2001
+Finance Assistant for [Problem]
+
+-> Problem for project:[Budgeting Assistant for Monthly Budgeting] -> A budgeting assistant for a super managing monthly budget across desired spending categories (e.g.rent, groceries, transport, entertainment, and subscriptions). The user will enter their income and their planned budget limit for each spending categories, then logs actual spending within the process. Expectations of the app will show the user category-by-category and their current financial situations whether they're (ON BUDGET, OVERBUDGET, UNDERBUDGET), following with a conversational assistant that are aware of the numbers and financial circumstances and will be available to ask questions and give financial advices.
