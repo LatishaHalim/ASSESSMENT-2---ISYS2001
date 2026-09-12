@@ -15,3 +15,18 @@ Thus, this financial assistant allows students to enter their income and budget 
   AI was used to provide ideas for potential problems users may face, in this case inconsistent and uncontrolled spending of international students due freedom of spending and income flow from family support, part-time, government financial help
 
 
+
+
+Week 7 - [12/09/2026]
+
+> Starting on the six-method planning:
+
+1. Understanding the problem
+2. Decided on expected input and output
+3. Creating an example desired input and output and status by hand (as a known answer test case for final check)
+
+* AI DECLARATION:
+  None used
+  
+
+
