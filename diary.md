@@ -24,9 +24,11 @@ Week 7 - [12/09/2026]
 1. Understanding the problem
 2. Decided on expected input and output
 3. Creating an example desired input and output and status by hand (as a known answer test case for final check)
+   --> Miscalculated the remaining values, however fixed with the help of AI checking
 
 * AI DECLARATION:
-  None used
+--> [Paste first finished 3 method of planning] Check whether the structure and content of the planning is on point and correct.
+  
   
 
 
