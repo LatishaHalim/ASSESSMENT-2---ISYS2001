@@ -12,7 +12,7 @@ University students, especially international students living out of home often 
 Thus, this financial assistant allows students to enter their income and budget limits for each category while continuously updating their spending history in the process to display a clear and unbiased view of their financial position. Moreover, genuine conversational financial advice services by the budgeting assistant are given based on the actual data and numbers (Using Google API). By this, students would be given the opportunity of a more controlled financial planning to only spend within the budget limit, if not, solutions to stabilise the overbudget spending will be referred by the financial assistant.
 
 * AI DECLARATION:
-  AI was used to provide ideas for potential problems users may face, in this case inconsistent and uncontrolled spending of international students due freedom of spending and income flow from family support, part-time, government financial help
+--> AI was used to provide ideas for potential problems users may face, in this case inconsistent and uncontrolled spending of international students due freedom of spending and income flow from family support, part-time, government financial help
 
 
 
@@ -28,6 +28,75 @@ Week 7 - [12/09/2026]
 
 * AI DECLARATION:
 --> [Paste first finished 3 method of planning] Check whether the structure and content of the planning is on point and correct.
+
+
+
+
+Week 7 - [13/09/2026]
+
+4.  Creating a Pseudocode (4th method): Plain-logic for the problem [seen in collab]
+
+def calculate_budget_status(budgets, spending):
+    results = {}   
+
+    for category in budgets:
+        budget_amount = budgets[category] 
+
+
+        if budget_amount <= 0:
+            raise ValueError(f"Budget for {category} must be greater than zero")
+
+
+        spent_amount = spending.get(category, 0)     
+        if spent_amount < 0:
+            raise ValueError(f"Spending for {category} cannot be negative")
+
+   
+        remaining = budget_amount - spent_amount
+        percent_used = (spent_amount / budget_amount) * 100
+
+        if spent_amount > budget_amount:
+            status = "overbudget"
+        elif percent_used >= 80:
+            status = "close to limit"
+        else:
+            status = "on track"
+
+  
+        results[category] = {
+            "spent": spent_amount,
+            "remaining": remaining,
+            "percent_used": percent_used,
+            "status": status
+        }
+
+    return results
+
+def summarise_overall(budgets, spending, income):
+    if income < 0:
+        raise ValueError("Income cannot be negative")
+
+    total_budgeted = sum(budgets.values())
+    total_spent = sum(spending.values())
+    unspent_from_income = income - total_spent
+    unused_budget = total_budgeted - total_spent
+
+    return {
+        "total_budgeted": total_budgeted,
+        "total_spent": total_spent,
+        "unspent_from_income": unspent_from_income,
+        "unused_budget": unused_budget
+
+    }
+
+* Issues occurred: When running the finished Pseudocode, an error message appear stating that the error came from "raise error" keyword
+    --> An easy fix, the issue was focused mainly on indentation.
+
+* AI DECLARATION:
+--> Based on the problem stated, write a relevant pseudocode as a reference
+   
+
+   
   
   
 
