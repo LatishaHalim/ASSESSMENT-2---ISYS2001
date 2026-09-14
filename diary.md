@@ -1,6 +1,6 @@
-Week 7 — [11/09/2026]
+Week 1 — [11/09/2026]
 
-Spent weeks 1-7 on labs and repo setup but hadn't locked in a project direction or started building. Starting the build now with roughly 4-5 weeks to the deadline.
+Spent learning weeks 1-7 on labs and repo setup but hadn't locked in a project direction or started building. Starting the build now with roughly 4-5 weeks to the deadline.
 
 Plan from here: Deciding on a problem , then API → tool → data → Gradio → tests, one real commit per session.
 
@@ -17,7 +17,7 @@ Thus, this financial assistant allows students to enter their income and budget 
 
 
 
-Week 7 - [12/09/2026]
+Week 1 - [12/09/2026]
 
 > Starting on the six-method planning:
 
@@ -32,7 +32,7 @@ Week 7 - [12/09/2026]
 
 
 
-Week 7 - [13/09/2026]
+Week 1 - [13/09/2026]
 
 4.  Creating a Pseudocode (4th method): Plain-logic for the problem [seen in collab]
 
@@ -94,6 +94,16 @@ def summarise_overall(budgets, spending, income):
 
 * AI DECLARATION:
 --> Based on the problem stated, write a relevant pseudocode as a reference
+
+
+
+
+
+Week 2 - [__/09/2026]
+
+
+
+  
    
 
    
