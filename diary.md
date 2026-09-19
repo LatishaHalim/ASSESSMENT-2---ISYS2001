@@ -99,7 +99,29 @@ def summarise_overall(budgets, spending, income):
 
 
 
-Week 2 - [__/09/2026]
+Week 2 - [19/09/2026]
+
+Converted my Step 4 pseudocode into two real Python functions: calculate_budget_status() and summarise_overall(). 
+Tested both against my Step 3 worked example (7 categories, $2500 income) and the output matched my by-hand calculations exactly for every category and the overall totals.
+
+Noticed a floating-point quirk — 115% displayed as 114.99999999999999 before I rounded it — not a logic bug, just how decimal division works in binary. Fixed the display with round().
+
+* AI DECLARATION:
+  **What I was trying to do:** Convert my Step 4 pseudocode into real Python functions for calculating budget status and overall summary, and verify they work correctly.
+
+**AI declaration:** Used Claude to help translate my pseudocode into Python syntax (converting "for each category" loops, "raise an error" statements, and if/else logic into actual Python), and to help write test code that runs the functions against my Step 3 worked example.
+
+**Prompt/question given:** Asked Claude to build the two functions to match my pseudocode exactly, then to help me test them against my worked example numbers.
+
+**What it returned:** Two Python functions (calculate_budget_status, summarise_overall) matching my pseudocode logic, plus test code using my Step 3 numbers (7 categories, $2500 income).
+
+**What I kept:** The full function structure — it matched my pseudocode's logic exactly (loop over budgets, guard clauses for bad input, status classification order). Also kept the f-string formatting suggestion for 
+cleaner print output.
+
+**What I changed/checked:** Ran the functions myself against my own worked example numbers rather than trusting the output blindly — confirmed every category's spent/remaining/percent/status matched my by-hand table exactly, and the summary totals matched too.
+
+**Anything rejected or corrected:** Noticed the raw output showed 114.99999999999999 instead of 115.0 for Entertainment's percentage — a 
+floating-point rounding artifact from binary division, not a logic error. Fixed the display by wrapping with round(percent_used, 1) rather than leaving the raw value.
 
 
 
