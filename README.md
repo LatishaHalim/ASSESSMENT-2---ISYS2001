@@ -17,14 +17,16 @@ Thus, this financial assistant allows students to enter their income and budget 
    Step 2: input/output (DONE)
    Step 3: worked example by hand (DONE)
    Step 4: Pseudocode (DONE)
-   Step 5: Convert pseudocode to real python code
-   Step 6: test with real variety data
+   Step 5: Convert pseudocode to real python code (DONE)
+   Step 6: test with real variety data (DONE)
 4. Set up Gemini API
 5. Ground the assistant in real data
 6. Load data via pandas or dict/loop logic
 7. Build the Gradio Interface
 8. Finish testing
 9. Finalise README and Diary
+
+
 
 
 
