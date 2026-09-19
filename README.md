@@ -9,6 +9,24 @@ University students, especially international students living out of home often 
 Thus, this financial assistant allows students to enter their income and budget limits for each category while continuously updating their spending history in the process to display a clear and unbiased view of their financial position. Moreover, genuine conversational and related financial advice services by the budgeting assistant are given based on the actual data and numbers given.
 
 
+*ASSESSMENT CHECKLIST/PLANNER:*
+1. Create repository, add collaboration, start README and update on diary
+2. Define problem and scenario: Budgeting assistant for international students
+3. Start on six-step method:
+   Step 1: Understand problem
+   Step 2: input/output
+   Step 3: worked example by hand
+   Step 4: Pseudocode
+   Step 5: Convert pseudocode to real python code
+   Step 6: test with real variety data
+4. Set up Gemini API
+5. Ground the assistant in real data
+6. Load data via pandas or dict/loop logic
+7. Build the Gradio Interface
+8. Finish testing
+9. Finalise README and Diary
+
+
 
 
 
