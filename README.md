@@ -10,13 +10,13 @@ Thus, this financial assistant allows students to enter their income and budget 
 
 
 *ASSESSMENT CHECKLIST/PLANNER:*
-1. Create repository, add collaboration, start README and update on diary
-2. Define problem and scenario: Budgeting assistant for international students
+1. Create repository, add collaboration, start README and update on diary (DONE)
+2. Define problem and scenario: Budgeting assistant for international students (DONE)
 3. Start on six-step method:
-   Step 1: Understand problem
-   Step 2: input/output
-   Step 3: worked example by hand
-   Step 4: Pseudocode
+   Step 1: Understand problem (DONE)
+   Step 2: input/output (DONE)
+   Step 3: worked example by hand (DONE)
+   Step 4: Pseudocode (DONE)
    Step 5: Convert pseudocode to real python code
    Step 6: test with real variety data
 4. Set up Gemini API
