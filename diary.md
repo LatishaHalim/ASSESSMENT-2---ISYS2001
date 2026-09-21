@@ -89,11 +89,11 @@ def summarise_overall(budgets, spending, income):
 
     }
 
-**Issues occurred:** When running the finished Pseudocode, an error message appear stating that the error came from "raise error" keyword
-    --> An easy fix, the issue was focused mainly on indentation.
+**Anything rejected or fixed:** 
+When running the finished Pseudocode, an error message appear stating that the error came from "raise error" keyword. An easy fix, the issue was focused mainly on indentation.
 
 **AI DECLARATION:**
---> Based on the problem stated, write a relevant pseudocode as a reference
+Based on the problem or scenario written, write a relevant pseudocode as a reference
 
 
 
@@ -105,21 +105,41 @@ def summarise_overall(budgets, spending, income):
 
 **AI declaration:** Used Claude throughout this session to help translate pseudocode into Python syntax, explain line-by-line what the code does, and help design and write assert-based tests, including error-case tests using try/except.
 
-**Prompt/question given:** Asked Claude to convert my pseudocode for calculate_budget_status() and summarise_overall() into real Python, then asked it to help me write tests — first checking normal cases against my Step 3 worked example, then edge cases (no spending logged) and error cases (zero budget, negative spending, negative income).
+**Prompt/question given:** Asked Claude to convert my pseudocode for calculate_budget_status() and summarise_overall() into real Python, then asked it to help me write tests. First checking normal cases against my Step 3 worked example, then edge cases (no spending logged) and error cases (zero budget, negative spending, negative income).
 
-**What it returned:** Two working Python functions matching my pseudocode's logic, plus a set of print-based checks, which I then converted into proper assert statements — including try/except blocks to test that my ValueError guard clauses raise the correct error with the correct message.
+**What it returned:** Two working Python functions matching my pseudocode's logic, plus a set of print-based checks, which I then converted into proper assert statements, including try/except blocks to test that my ValueError guard clauses raise the correct error with the correct message.
 
-**Anything rejected or corrected:** 
-1. Found a floating-point display issue — Entertainment's percent_used printed as 114.99999999999999 instead of 115.0, a binary rounding artifact. Fixed by wrapping display values with round(x, 1), and used the same rounding inside the relevant assert to avoid a false failure 
+**Anything rejected or fixed:** 
+1. Found a floating-point display issue, Entertainment's percent_used printed as 114.99999999999999 instead of 115.0, a binary rounding artifact. Fixed by wrapping display values with round(x, 1), and used the same rounding inside the relevant assert to avoid a false failure 
 from exact-equality comparison on a near-115 float.
 
-2. Accidentally mislabelled my Python code cell as "STEP 4: PSEUDOCODE"  instead of "STEP 5: PYTHON IMPLEMENTATION" — caught this while 
+2. Accidentally mislabelled my Python code cell as "STEP 4: PSEUDOCODE"  instead of "STEP 5: PYTHON IMPLEMENTATION", caught this while 
 reviewing my own notebook structure and corrected the heading.
   
 3. Tried running my actual pseudocode (the plain-English version) directly as a code cell out of curiosity/confusion, which correctly produced a SyntaxError ("function" isn't a real Python keyword). This helped confirm my understanding of why pseudocode belongs in a markdown cell, not a code cell.
 
 **Result:** All normal-case and edge/error-case tests pass. Six-step method now fully evidenced (Steps 1–6 complete for the custom budget tool), with R3, R5, and R6 substantially covered.
+
+
+
+
+
+
   
-  
+
+**Week 3 - [21/09/2026]**
+
+**What I was trying to do:** Set up the Gemini API connection (R1) using requests, with a persona and system instruction, and confirm it handles both on-topic and off-topic questions sensibly.
+
+**AI declaration:** Used Claude to help write the ask_gemini() wrapper function using the requests library, confirm the correct Gemini REST 
+endpoint format, and design the persona system instruction.
+
+**What I tested:** Asked the assistant a grocery-saving question (on-topic) and "what's the capital of France?" (off-topic), using the same persona instruction for both.
+
+**What it returned:** A detailed, well-structured grocery-saving response in a warm coaching tone (ethnic markets, cheap staples, batch cooking, etc.), and for the off-topic question, a brief, polite answer followed by a redirect back to budgeting: "my real specialty is helping you navigate student life on a budget... Is there a money question..."
+
+**What I kept:** The full persona instruction and the wrapper function as designed — both worked as intended on the first real test.
+
+**Anything I found and fixed:** Hit a 503 "model currently experiencing high demand" error on my first attempt, not a bug in my code, since the error was Google's server being temporarily overloaded. My error handling (checking response.status_code) caught it cleanly and gave a clear message rather than crashing confusingly. Re-ran the same cell a minute later and it succeeded.
 
 
