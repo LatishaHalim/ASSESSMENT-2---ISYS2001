@@ -27,6 +27,10 @@ Thus, this financial assistant allows students to enter their income and budget 
 9. Finalise README and Diary
 
 
+**WEEK 2 (21/09/2026)**
+Add assert-based tests for calculate_budget_status and summarise_overall, covering normal, edge, and error cases
+
+
 
 
 
