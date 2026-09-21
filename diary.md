@@ -109,9 +109,14 @@ def summarise_overall(budgets, spending, income):
 
 **What it returned:** Two working Python functions matching my pseudocode's logic, plus a set of print-based checks, which I then converted into proper assert statements — including try/except blocks to test that my ValueError guard clauses raise the correct error with the correct message.
 
-**What I changed/checked:** Ran every test myself against my own Step 3 by-hand calculations before trusting any of it — all 7 categories' 
-spent/remaining/percent/status matched exactly, as did the four summary totals. I also asked Claude to explain the try/except and assert syntax line by line until I actually understood the control flow, rather than 
-just copying it in.
+**Anything rejected or corrected:** 
+1. Found a floating-point display issue — Entertainment's percent_used printed as 114.99999999999999 instead of 115.0, a binary rounding artifact. Fixed by wrapping display values with round(x, 1), and used the same rounding inside the relevant assert to avoid a false failure 
+from exact-equality comparison on a near-115 float.
+
+2. Accidentally mislabelled my Python code cell as "STEP 4: PSEUDOCODE"  instead of "STEP 5: PYTHON IMPLEMENTATION" — caught this while 
+reviewing my own notebook structure and corrected the heading.
+  
+3. Tried running my actual pseudocode (the plain-English version) directly as a code cell out of curiosity/confusion, which correctly produced a SyntaxError ("function" isn't a real Python keyword). This helped confirm my understanding of why pseudocode belongs in a markdown cell, not a code cell.
 
 **Result:** All normal-case and edge/error-case tests pass. Six-step method now fully evidenced (Steps 1–6 complete for the custom budget tool), with R3, R5, and R6 substantially covered.
   
