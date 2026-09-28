@@ -169,36 +169,26 @@ functions, and the first version of the Gradio interface code. I asked for line-
   and noticed that $900 of rent was still unpaid.<img width="1278" height="309" alt="Screenshot 2026-09-28 at 13 32 40" src="https://github.com/user-attachments/assets/42e24080-ca0e-4638-b7ef-d37a4cc03b08" />
 
   
-- 503 errors: hit "model currently experiencing high demand" several
-  times. My status_code check surfaced a clear message each time. I
-  added retries for 503s only, and once it correctly gave up after 3
-  attempts with my own error message.
-- 429 error: hit the free-tier daily quota (20 requests per day per
-  model). This was not a bug. The 13-second retry hint in the message
-  applies to short-term limits, not the daily cap. My earlier retries
-  had also used up quota, so I'm now more deliberate about test calls.
-  [Paste screenshot of error here]
+- 503 errors: hit "model currently experiencing high demand" several times. My status_code check surfaced a clear message each time. I
+  added retries for 503s only, and once it correctly gave up after 3 attempts with my own error message.
+- 429 error: hit the free-tier daily quota (20 requests per day per model). This was not a bug. The 13-second retry hint in the message
+  applies to short-term limits, not the daily cap. My earlier retries had also used up quota, so I'm now more deliberate about test calls.
+  
 
-**What I kept:** The wrapper structure and the grounding approach. I
-kept retries for 503 only, because retrying a 400 or 403 would not help.
+**What I kept:** The wrapper structure and the grounding approach. I kept retries for 503 only, because retrying a 400 or 403 did not help.
 
 **What I changed or decided:**
-- Decided not to use pandas. My data is typed in manually and stored in
-  dictionaries, and my spec allows dict/loop logic for the analysis.
-  Wrapping seven values in a DataFrame just to use pandas wouldn't be
-  using a library for what it is meant for.
-- Gradio launched successfully in Colab. [Add results of testing it once
-  done]
+- Decided not to use pandas. My data is typed in manually and stored in dictionaries, and my spec allows dict/loop logic for the analysis.
+  Wrapping seven values in a DataFrame just to use pandas wouldn't be using a library for what it is meant for.
+- Gradio launched successfully in Colab. <img width="1295" height="121" alt="Screenshot 2026-09-28 at 13 34 12" src="https://github.com/user-attachments/assets/0a3c9268-c8b6-4918-b42d-55b213b240a5" />
+
 
 **Mistakes I made and fixed:**
-1. NameError for ask_gemini_grounded, then for budgets. My Colab runtime
-   had restarted, so earlier functions and variables were gone. Fixed
+1. NameError for ask_gemini_grounded, then for budgets. My Colab runtime had restarted, so earlier functions and variables were gone. Fixed
    with Runtime → Run all. I now run everything from the top after a break.
-2. SyntaxError from pasting the summary sketch of the Gradio code (with
-   "..." placeholders) instead of the full code. "..." is shorthand,
+2. SyntaxError from pasting the summary sketch of the Gradio code (with "..." placeholders) instead of the full code. "..." is shorthand,
    not valid Python.
 
-**Still to do:** Variation test (different numbers, confirm the reply
-changes) once my quota resets. Test the Gradio interface, including a
+**Still to do:** Variation test (different numbers, confirm the reply changes) once my quota resets. Test the Gradio interface, including a
 deliberate bad input such as a $0 budget.
 
