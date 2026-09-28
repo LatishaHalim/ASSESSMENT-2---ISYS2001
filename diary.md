@@ -192,4 +192,44 @@ functions, and the first version of the Gradio interface code. I asked for line-
 **Still to do:** Variation test (different numbers, confirm the reply changes) once my quota resets. Test the Gradio interface, including a
 deliberate bad input such as a $0 budget.
 
+**[CONTINUATION — found and fixed a bug via Gradio testing]**
+**What I was trying to do:** Test the Gradio interface against the cases I'd already designed for (worked example, zero budget, negative spending), then deliberately try something I hadn't planned for, to see if the app would survive it.
+
+**AI declaration:** Used Claude to help design the test cases, predict what would likely happen with a blank input box, write the fix, and write the new assert tests. I ran every test myself and read the tracebacks before accepting any explanation of what went wrong.
+
+**What I tested and found:**
+- Confirmed the interface matches my Step 3 worked example and my earlier assert tests exactly — same statuses, percentages and remaining amounts, and the same totals (1972 / 1074 / 1426 / 898). <img width="540" height="260" alt="Screenshot 2026-09-28 at 16 27 51" src="https://github.com/user-attachments/assets/79b60c8b-10c6-43c9-8ec0-f9412b947074" />
+
+- Confirmed the existing guard clauses work through the interface, not just in the raw functions: a $0 Groceries budget gave "⚠️ Input error: Budget for Groceries must be greater than zero", and negative spending gave the matching message. <img width="456" height="43" alt="Screenshot 2026-09-28 at 16 29 34" src="https://github.com/user-attachments/assets/a545fef6-3a2e-4f20-8f20-7743694f60b3" />
+  
+- Then tried clearing a number box completely and clicking Check My Budget. This produced a generic "Error" in Gradio, not a friendly message. <img width="1047" height="344" alt="Screenshot 2026-09-28 at 14 00 30" src="https://github.com/user-attachments/assets/2d49c44b-78bd-409d-9d1f-d824488e34bf" />
+
+  
+**Why it broke:** 
+an empty Gradio number box is passed to Python as None, not 0. My guard clauses checked budget_amount <= 0 and spent_amount < 0, but comparing None with a number raises a TypeError: '<' not supported between instances of 'NoneType' and 'int', which my except ValueError block does not catch. I reproduced this directly by calling calculate_budget_status({"Gym": 48}, {"Gym": None}) in a code cell before changing anything, and got the same TypeError. <img width="1023" height="331" alt="Screenshot 2026-09-28 at 14 12 08" src="https://github.com/user-attachments/assets/03608a58-9110-44c8-9712-0abb8dc519d2" />
+
+**What I changed:** 
+added an is None check in both calculate_budget_status and summarise_overall, before the existing numeric comparisons, so a missing value is caught and reported the same way a zero or negative one is:
+
+python
+if budget_amount is None:
+    raise ValueError(f"Budget for {category} is empty - please enter a number")
+    
+**What I kept:** 
+the rest of the function logic and the existing ValueError pattern — I extended the same approach rather than introducing a different error-handling style for this case.
+
+**How I verified the fix:**
+- Added three new assert tests (empty budget, empty spending, empty income) that reproduce the exact TypeError scenario and check for the new, specific error message.
+  
+-  All new tests passed, and my earlier normal-case and edge-case tests still passed after the change.
+
+- Re-ran the Gradio app, cleared the Entertainment spent box again, and got "⚠️ Input error: Spending for Entertainment is empty - please enter a number" instead of "Error". <img width="427" height="33" alt="Screenshot 2026-09-28 at 16 33 24" src="https://github.com/user-attachments/assets/07d1dd5f-b5c0-41bd-992f-1de70500fb31" />
+
+
+**Real (not staged) failure:**
+tried asking the assistant a question through the interface and hit Google's free-tier daily quota (20 requests/day), a 429 RESOURCE_EXHAUSTED error. This wasn't something I deliberately tested for — it happened because of my own earlier testing volume. The interface still didn't crash: my except ValueError in chat_with_assistant caught it and displayed "⚠️ The assistant couldn't respond right now: Gemini API error 429: ...".<img width="1245" height="158" alt="Screenshot 2026-09-28 at 14 38 54" src="https://github.com/user-attachments/assets/37cd5c26-0818-4861-94c4-a832da15b293" />
+
+This is a genuine, unplanned example of the app handling an external failure gracefully, on top of the input cases I designed deliberately.
+
+
 
