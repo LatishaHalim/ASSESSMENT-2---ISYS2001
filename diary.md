@@ -192,3 +192,4 @@ functions, and the first version of the Gradio interface code. I asked for line-
 **Still to do:** Variation test (different numbers, confirm the reply changes) once my quota resets. Test the Gradio interface, including a
 deliberate bad input such as a $0 budget.
 
+
