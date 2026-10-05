@@ -1,23 +1,32 @@
 
 **Student Budget Assistant Built for SYS2001 Introduction to Business Programming, Assessment 2.[UPDATE]**
+
+
 A small finance assistant for international students who manage a monthly budget across a handful of categories. You enter your income, your budget for each category, and what you've spent so far. The app shows where you stand in each category and lets you ask a budgeting coach questions. The coach's answers use your actual numbers.
 
 
 **The problem**
+
+
 International students often have money coming in with few rules about how to spend it. It's easy to lose track partway through the month and only notice an overspend when it's too late to adjust. This app gives a clear picture of where a student stands right now, plus practical advice based on their real figures.
 
 **What it does**
-Budget checker (my own code): calculate_budget_status() takes your budget and spending for each category and returns the amount spent, amount remaining, percent used, and a status: on track, close to limit (80% or more used) or overbudget. 
+1. **Budget checker (my own code):** calculate_budget_status() takes your budget and spending for each category and returns the amount spent, amount remaining, percent used, and a status: on track, close to limit (80% or more used) or overbudget. 
 
 summarise_overall() returns total budgeted, total spent, unspent income and unused budget.
 
-Grounded assistant: A budgeting coach powered by Google's Gemini model (called with the requests library). A system instruction sets its persona and tells it to steer off-topic questions back to budgeting. Your budget summary is added to each question so replies refer to your real numbers.
+**Grounded assistant:** A budgeting coach powered by Google's Gemini model (called with the requests library). A system instruction sets its persona and tells it to steer off-topic questions back to budgeting. Your budget summary is added to each question so replies refer to your real numbers.
 
-Gradio interface: Number boxes for income, budgets and spending, a Check My Budget button, and a question box with an Ask button.
+**Gradio interface:** Number boxes for income, budgets and spending, a Check My Budget button, and a question box with an Ask button.
 
-Input handling: Zero budgets, negative spending, negative income and blank boxes are caught and shown as a plain message instead of crashing. A Gemini outage or quota error also shows a message rather than crashing the app.
+**Input handling:** Zero budgets, negative spending, negative income and blank boxes are caught and shown as a plain message instead of crashing. A Gemini outage or quota error also shows a message rather than crashing the app.
 
-**Categories:** Groceries, Rent, Transport, Entertainment, Subscription, Gym, Mobile data.
+**Categories:** 
+
+
+Groceries, Rent, Transport, Entertainment, Subscription, Gym, Mobile data.
+
+
 --> Sample input and output
 Input: income $2,500, with these budgets and spending:
 --Category	Budget--
