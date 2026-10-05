@@ -148,13 +148,9 @@ reviewing my own notebook structure and corrected the heading.
 
 **Result:** All normal-case and edge/error-case tests pass. Six-step method now fully evidenced (Steps 1–6 complete for the custom budget tool), with R3, R5, and R6 substantially covered.
 
-
-
-
-
-
+.
+.
   
-
 **Week 3 - [21/09/2026]**
 
 **What I was trying to do:** Set up the Gemini API connection (R1) using requests, with a persona and system instruction, and confirm it handles both on-topic and off-topic questions sensibly.
@@ -231,7 +227,10 @@ deliberate bad input such as a $0 budget.
 **[CONTINUATION — found and fixed a bug via Gradio testing]**
 **What I was trying to do:** Test the Gradio interface against the cases I'd already designed for (worked example, zero budget, negative spending), then deliberately try something I hadn't planned for, to see if the app would survive it.
 
-**AI declaration:** Used Claude to help design the test cases, predict what would likely happen with a blank input box, write the fix, and write the new assert tests. I ran every test myself and read the tracebacks before accepting any explanation of what went wrong.
+**AI declaration:** 
+
+
+--> Used Claude to help design the test cases, predict what would likely happen with a blank input box, write the fix, and write the new assert tests. I ran every test myself and read the tracebacks before accepting any explanation of what went wrong.
 
 **What I tested and found:**
 - Confirmed the interface matches my Step 3 worked example and my earlier assert tests exactly — same statuses, percentages and remaining amounts, and the same totals (1972 / 1074 / 1426 / 898). <img width="540" height="260" alt="Screenshot 2026-09-28 at 16 27 51" src="https://github.com/user-attachments/assets/79b60c8b-10c6-43c9-8ec0-f9412b947074" />
@@ -242,10 +241,12 @@ deliberate bad input such as a $0 budget.
 
   
 **Why it broke:** 
+
+
 an empty Gradio number box is passed to Python as None, not 0. My guard clauses checked budget_amount <= 0 and spent_amount < 0, but comparing None with a number raises a TypeError: '<' not supported between instances of 'NoneType' and 'int', which my except ValueError block does not catch. I reproduced this directly by calling calculate_budget_status({"Gym": 48}, {"Gym": None}) in a code cell before changing anything, and got the same TypeError. <img width="1023" height="331" alt="Screenshot 2026-09-28 at 14 12 08" src="https://github.com/user-attachments/assets/03608a58-9110-44c8-9712-0abb8dc519d2" />
 
 **What I changed:** 
-added an is None check in both calculate_budget_status and summarise_overall, before the existing numeric comparisons, so a missing value is caught and reported the same way a zero or negative one is:
+added an is None check in both calculate_budget_status and summarise_overall, before the existing numeric comparisons, so a missing value is caught and reported the same way a zero or negative one is: (Add-ons)
 
 python
 if budget_amount is None:
@@ -268,4 +269,10 @@ tried asking the assistant a question through the interface and hit Google's fre
 This is a genuine, unplanned example of the app handling an external failure gracefully, on top of the input cases I designed deliberately.
 
 
+.
+.
 
+
+
+**WEEK 6 — [5/10/2026]**
+**What I was trying to do:** Cleaning up Assessment repository by finalising and tidying codes, diary entries, README pass
