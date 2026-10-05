@@ -15,11 +15,11 @@ International students often have money coming in with few rules about how to sp
 
 summarise_overall() returns total budgeted, total spent, unspent income and unused budget.
 
-**Grounded assistant:** A budgeting coach powered by Google's Gemini model (called with the requests library). A system instruction sets its persona and tells it to steer off-topic questions back to budgeting. Your budget summary is added to each question so replies refer to your real numbers.
+2. **Grounded assistant:** A budgeting coach powered by Google's Gemini model (called with the requests library). A system instruction sets its persona and tells it to steer off-topic questions back to budgeting. Your budget summary is added to each question so replies refer to your real numbers.
 
-**Gradio interface:** Number boxes for income, budgets and spending, a Check My Budget button, and a question box with an Ask button.
+3. **Gradio interface:** Number boxes for income, budgets and spending, a Check My Budget button, and a question box with an Ask button.
 
-**Input handling:** Zero budgets, negative spending, negative income and blank boxes are caught and shown as a plain message instead of crashing. A Gemini outage or quota error also shows a message rather than crashing the app.
+4. **Input handling:** Zero budgets, negative spending, negative income and blank boxes are caught and shown as a plain message instead of crashing. A Gemini outage or quota error also shows a message rather than crashing the app.
 
 **Categories:** 
 
@@ -28,6 +28,8 @@ Groceries, Rent, Transport, Entertainment, Subscription, Gym, Mobile data.
 
 
 --> Sample input and output
+
+
 Input: income $2,500, with these budgets and spending:
 
 
@@ -80,6 +82,8 @@ Input: income $2,500, with these budgets and spending:
 -> Mobile data: 35
 
 **Output from Check My Budget:**
+
+
 Groceries: spent $470 of $400 — 117.5% used — remaining $-70 — overbudget
 
 
