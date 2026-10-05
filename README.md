@@ -29,37 +29,92 @@ Groceries, Rent, Transport, Entertainment, Subscription, Gym, Mobile data.
 
 --> Sample input and output
 Input: income $2,500, with these budgets and spending:
+
+
 --Category	Budget--
-Groceries: 400	
-Rent: 1200	
-Transport: 150	
-Entertainment: 100	
-Subscription: 35	
-Gym: 48	
-Mobile data: 39	
+
+
+-> Groceries: 400	
+
+
+-> Rent: 1200
+
+  
+-> Transport: 150
+
+
+->Entertainment: 100
+
+
+-> Subscription: 35	
+
+
+-> Gym: 48	
+
+
+-> Mobile data: 39	
+
+
 
 --Category Spending--
-Groceries: 470
-Rent: 300
-Transport: 60
-Entertainment: 115
-Subscription: 70
-Gym: 24
-Mobile data: 35
+
+
+-> Groceries: 470
+
+
+-> Rent: 300
+
+
+-> Transport: 60
+
+
+-> Entertainment: 115
+
+
+-> Subscription: 70
+
+
+-> Gym: 24
+
+
+-> Mobile data: 35
 
 **Output from Check My Budget:**
 Groceries: spent $470 of $400 — 117.5% used — remaining $-70 — overbudget
+
+
 Rent: spent $300 of $1200 — 25.0% used — remaining $900 — on track
+
+
 Transport: spent $60 of $150 — 40.0% used — remaining $90 — on track
+
+
 Entertainment: spent $115 of $100 — 115.0% used — remaining $-15 — overbudget
+
+
 Subscription: spent $70 of $35 — 200.0% used — remaining $-35 — overbudget
+
+
 Gym: spent $24 of $48 — 50.0% used — remaining $24 — on track
+
+
 Mobile data: spent $35 of $39 — 89.7% used — remaining $4 — close to limit
 
+.
+.
+
 Total budgeted: $1972
+
+
 Total spent: $1074
+
+
 Unspent from income: $1426
+
+
 Unused budget: $898
+
+
 
 **Question to the assistant: "Am I doing okay this month?"**
 Reply (excerpt): The short answer is: 
@@ -71,7 +126,7 @@ Here is a clear look at where you stand:
 
 ---
 
-### 1. The Big Picture: You have breathing room, but watch Rent!
+ 1. The Big Picture: You have breathing room, but watch Rent!
 * **Income:** $2,500
 * **Spent so far:** $1,074
 * **Unspent cash:** $1,426
@@ -85,7 +140,7 @@ Because you originally budgeted $1,972 against an income of $2,500, you intentio
 
 ---
 
-### 2. Where things went off track
+2. Where things went off track
 A few categories need attention before they eat into that remaining buffer:
 
 * **Groceries ($470 spent / $400 budget):** You are **$70 over**. As an international student, grocery shopping in a new country can be tricky—especially when buying imported comfort foods or adjusting to local prices. 
@@ -95,7 +150,7 @@ A few categories need attention before they eat into that remaining buffer:
 
 ---
 
-### 3. Your Action Plan for the Rest of the Month
+3. Your Action Plan for the Rest of the Month
 
 1. **Lock down the $900 for rent:** Move this money into a separate account or mentally mark it as "already spent" so you don't accidentally touch it.
 2. **Pantry challenge for food:** Since you’re $70 over on groceries, try to stretch what’s already in your fridge and cupboards. Plan meals around basic staples like rice, beans, pasta, and eggs, or look for campus events offering free food.
