@@ -4,7 +4,10 @@ Spent learning weeks 1-7 on labs and repo setup but hadn't locked in a project d
 
 Plan from here: Deciding on a problem , then API → tool → data → Gradio → tests, one real commit per session.
 
-**Problem for project:[Budgeting Assistant for Monthly Budgeting]** -> A budgeting assistant for a super managing monthly budget across desired spending categories (e.g.rent, groceries, transport, entertainment, and subscriptions) -> The user will enter their income and their planned budget limit for each spending categories, then logs actual spending within the process. -> Expectations: The app will show the user category-by-category and their current financial situations whether they're (ON BUDGET, OVERBUDGET, UNDERBUDGET), following with a conversational assistant that are aware of the numbers and financial circumstances and will be available to ask questions and give financial advices.
+**Problem for project:[Budgeting Assistant for Monthly Budgeting]** 
+
+
+A budgeting assistant for a super managing monthly budget across desired spending categories (e.g.rent, groceries, transport, entertainment, and subscriptions) -> The user will enter their income and their planned budget limit for each spending categories, then logs actual spending within the process. -> Expectations: The app will show the user category-by-category and their current financial situations whether they're (ON BUDGET, OVERBUDGET, UNDERBUDGET), following with a conversational assistant that are aware of the numbers and financial circumstances and will be available to ask questions and give financial advices.
 
 **Specific plan and objective:**
 University students, especially international students living out of home often face tight, and irregular financial income from part-time jobs, support from families, and even government financial services. Being an international student with freedom of spending tends to find it easy to lose track of discrete spending, especially in food and entertainment. This could be a tumbling issue when high-cost expenses such as rent or bills are due. 
@@ -150,9 +153,11 @@ endpoint format, and design the persona system instruction.
 
 
 
-##WEEK 4 — [28/09/2026]**
+**WEEK 4 — [28/09/2026]**
 
-**What I was trying to do:** Make the assistant answer using my real budget numbers (R2), make the Gemini calls more robust, and build the first version of the Gradio interface (R4).
+**What I was trying to do:** 
+
+Make the assistant answer using my real budget numbers (R2), make the Gemini calls more robust, and build the first version of the Gradio interface (R4).
 
 **AI declaration:** Used Claude to help write the retry logic in ask_gemini(), the build_budget_summary() and ask_gemini_grounded()
 functions, and the first version of the Gradio interface code. I asked for line-by-line explanations of each piece and ran everything myself.
