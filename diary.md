@@ -1,8 +1,8 @@
 **Week 1 — [11/09/2026]**
 
-Spent learning weeks 1-7 on labs and repo setup but hadn't locked in a project direction or started building. Starting the build now with roughly 4-5 weeks to the deadline.
+--> Spent learning weeks 1-7 on labs and repo setup but hadn't locked in a project direction or started building. Starting the build now with roughly 4-5 weeks to the deadline.
 
-Plan from here: Deciding on a problem , then API → tool → data → Gradio → tests, one real commit per session.
+--> Plan from here: Deciding on a problem , then API → tool → data → Gradio → tests, one real commit per session.
 
 
 
@@ -44,6 +44,8 @@ STEP 3: Creating an example desired input and output and status by hand (as a kn
 
 
 --> [Paste first finished 3 method of planning] Check whether the structure and content of the planning is on point and correct.
+
+**What it returned:** Pointed out corrections to be made based on values that are miscalculated 
 
 .
 .
@@ -106,10 +108,14 @@ def summarise_overall(budgets, spending, income):
     }
 
 **Anything rejected or fixed:** 
-When running the finished Pseudocode, an error message appear stating that the error came from "raise error" keyword. An easy fix, the issue was focused mainly on indentation.
+
+
+--> When running the finished Pseudocode, an error message appear stating that the error came from "raise error" keyword. An easy fix, the issue was focused mainly on indentation.
 
 **AI DECLARATION:**
-Based on the problem or scenario written, write a relevant pseudocode as a reference
+
+
+--> Based on the problem or scenario written, write a relevant pseudocode as a reference
 
 
 .
@@ -122,7 +128,10 @@ Based on the problem or scenario written, write a relevant pseudocode as a refer
 
 Finish converting my Step 4 pseudocode into working Python (Step 5), and write proper tests for it (Step 6) — both required parts of the six-step method (R6), and the testing also covers R5 and reinforces R3 (custom tool handling bad input).
 
-**AI declaration:** Used Claude throughout this session to help translate pseudocode into Python syntax, explain line-by-line what the code does, and help design and write assert-based tests, including error-case tests using try/except.
+**AI declaration:**
+
+
+--> Used Claude throughout this session to help translate pseudocode into Python syntax, explain line-by-line what the code does, and help design and write assert-based tests, including error-case tests using try/except.
 
 **Prompt/question given:** Asked Claude to convert my pseudocode for calculate_budget_status() and summarise_overall() into real Python, then asked it to help me write tests. First checking normal cases against my Step 3 worked example, then edge cases (no spending logged) and error cases (zero budget, negative spending, negative income).
 
@@ -150,32 +159,35 @@ reviewing my own notebook structure and corrected the heading.
 
 **What I was trying to do:** Set up the Gemini API connection (R1) using requests, with a persona and system instruction, and confirm it handles both on-topic and off-topic questions sensibly.
 
-**AI declaration:** Used Claude to help write the ask_gemini() wrapper function using the requests library, confirm the correct Gemini REST 
+**AI declaration:** 
+
+
+--> Used Claude to help write the ask_gemini() wrapper function using the requests library, confirm the correct Gemini REST 
 endpoint format, and design the persona system instruction.
 
 **What I tested:** Asked the assistant a grocery-saving question (on-topic) and "what's the capital of France?" (off-topic), using the same persona instruction for both.
 
 **What it returned:** A detailed, well-structured grocery-saving response in a warm coaching tone (ethnic markets, cheap staples, batch cooking, etc.), and for the off-topic question, a brief, polite answer followed by a redirect back to budgeting: "my real specialty is helping you navigate student life on a budget... Is there a money question..."
 
-**What I kept:** The full persona instruction and the wrapper function as designed — both worked as intended on the first real test.
+**What I kept:** The full persona instruction and the wrapper function as designed where both worked as intended on the first real test.
 
-**Anything I found and fixed:** Hit a 503 "model currently experiencing high demand" error on my first attempt, not a bug in my code, since the error was Google's server being temporarily overloaded. My error handling (checking response.status_code) caught it cleanly and gave a clear message rather than crashing confusingly. Re-ran the same cell a minute later and it succeeded.
-
-
+**Anything I found and fixed:**
 
 
+--> Hit a 503 "model currently experiencing high demand" error on my first attempt, not a bug in my code, since the error was Google's server being temporarily overloaded. My error handling (checking response.status_code) caught it cleanly and gave a clear message rather than crashing confusingly. Re-ran the same cell a minute later and it succeeded.
 
-
-
+.
+.
 
 
 **WEEK 4 — [28/09/2026]**
 
-**What I was trying to do:** 
+**What I was trying to do:** Make the assistant answer using my real budget numbers (R2), make the Gemini calls more robust, and build the first version of the Gradio interface (R4).
 
-Make the assistant answer using my real budget numbers (R2), make the Gemini calls more robust, and build the first version of the Gradio interface (R4).
+**AI declaration:** 
 
-**AI declaration:** Used Claude to help write the retry logic in ask_gemini(), the build_budget_summary() and ask_gemini_grounded()
+
+--> Used Claude to help write the retry logic in ask_gemini(), the build_budget_summary() and ask_gemini_grounded()
 functions, and the first version of the Gradio interface code. I asked for line-by-line explanations of each piece and ran everything myself.
 
 **Prompt/question given:** Asked how to feed my budget results into the Gemini prompt so replies use my actual numbers, then how to handle the API errors I hit, then how to build a Gradio interface around my existing functions.
@@ -186,12 +198,15 @@ functions, and the first version of the Gradio interface code. I asked for line-
 - A Gradio app with number inputs, a "Check My Budget" button and an "Ask" button, with try/except around my ValueError cases.
 
 **What happened when I tested it:**
+
+
 - Grounded reply: asked "Am I doing okay this month?" with my Step 3 numbers. The reply used my real figures ($2,500 income, $1,074 spent)
   and noticed that $900 of rent was still unpaid.<img width="1278" height="309" alt="Screenshot 2026-09-28 at 13 32 40" src="https://github.com/user-attachments/assets/42e24080-ca0e-4638-b7ef-d37a4cc03b08" />
 
   
 - 503 errors: hit "model currently experiencing high demand" several times. My status_code check surfaced a clear message each time. I
   added retries for 503s only, and once it correctly gave up after 3 attempts with my own error message.
+  
 - 429 error: hit the free-tier daily quota (20 requests per day per model). This was not a bug. The 13-second retry hint in the message
   applies to short-term limits, not the daily cap. My earlier retries had also used up quota, so I'm now more deliberate about test calls.
   
