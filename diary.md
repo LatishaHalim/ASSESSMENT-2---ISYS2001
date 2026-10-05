@@ -23,30 +23,34 @@ Thus, this financial assistant allows students to enter their income and budget 
 
 --> AI was used to provide ideas for potential problems users may face, in this case inconsistent and uncontrolled spending of international students due freedom of spending and income flow from family support, part-time, government financial help
 
-
-
+.
+.
 
 **Week 1 - [12/09/2026]**
 
-**Starting on the six-method planning:**
+**Starting on the six-method planning: (WRITTEN IN Six_step_planning Notebook)**
 
 
-1. Understanding the problem
-2. Decided on expected input and output
-3. Creating an example desired input and output and status by hand (as a known answer test case for final check)
-   --> Miscalculated the remaining values, however fixed with the help of AI checking
+STEP 1: Understanding the problem 
+STEP 2: Decided on expected input and output
+STEP 3: Creating an example desired input and output and status by hand (as a known answer test case for final check)
+   
+**Anything I found and fixed**
+
+
+ --> Miscalculated the remaining values, however fixed with the help of AI checking
 
 **AI DECLARATION:**
 
 
 --> [Paste first finished 3 method of planning] Check whether the structure and content of the planning is on point and correct.
 
-
-
+.
+.
 
 **Week 1 - [13/09/2026]**
 
-4.  Creating a Pseudocode (4th method): Plain-logic for the problem [seen in collab]
+STEP 4: Creating a Pseudocode (4th method): Plain-logic for the problem [seen in collab]
 
 def calculate_budget_status(budgets, spending):
     results = {}   
@@ -108,12 +112,15 @@ When running the finished Pseudocode, an error message appear stating that the e
 Based on the problem or scenario written, write a relevant pseudocode as a reference
 
 
+.
+.
+
+**Week 2 - [19/09/2026]** 
+
+**What I was trying to do:** 
 
 
-
-**Week 2 - [19/09/2026]** UPDATED
-
-**What I was trying to do:** Finish converting my Step 4 pseudocode into working Python (Step 5), and write proper tests for it (Step 6) — both required parts of the six-step method (R6), and the testing also covers R5 and reinforces R3 (custom tool handling bad input).
+Finish converting my Step 4 pseudocode into working Python (Step 5), and write proper tests for it (Step 6) — both required parts of the six-step method (R6), and the testing also covers R5 and reinforces R3 (custom tool handling bad input).
 
 **AI declaration:** Used Claude throughout this session to help translate pseudocode into Python syntax, explain line-by-line what the code does, and help design and write assert-based tests, including error-case tests using try/except.
 
