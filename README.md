@@ -21,13 +21,16 @@ summarise_overall() returns total budgeted, total spent, unspent income and unus
 
 4. **Input handling:** Zero budgets, negative spending, negative income and blank boxes are caught and shown as a plain message instead of crashing. A Gemini outage or quota error also shows a message rather than crashing the app.
 
+
+
+
 **Categories:** 
 
 
 Groceries, Rent, Transport, Entertainment, Subscription, Gym, Mobile data.
 
 
---> Sample input and output
+--> **Sample input and output**
 
 
 Input: income $2,500, with these budgets and spending:
@@ -80,6 +83,7 @@ Input: income $2,500, with these budgets and spending:
 
 
 -> Mobile data: 35
+
 
 **Output from Check My Budget:**
 
