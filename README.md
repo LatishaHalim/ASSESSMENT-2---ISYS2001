@@ -125,7 +125,11 @@ Unused budget: $898
 
 
 **Question to the assistant: "Am I doing okay this month?"**
+
+
 Reply (excerpt): The short answer is: 
+
+
 **You are in a decent position overall, but you need to be cautious right now.** 
 
 You have plenty of cash left in your account, but a couple of key categories have slipped over budget, and your biggest expense hasn't fully cleared yet. 
