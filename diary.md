@@ -307,6 +307,9 @@ NameError for api_key. My Colab runtime had restarted, so every function and var
 
 
 
+.
+.
+
 
 **WEEK 7 — [12/10/2026]**
 **What I was trying to do:** Run the full pipeline through the Gradio interface for the first time with a real question: typed budget numbers, my two functions, the grounded prompt, a Gemini reply, all displayed in the app.
