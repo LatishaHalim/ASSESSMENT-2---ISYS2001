@@ -330,7 +330,8 @@ NameError for api_key. My Colab runtime had restarted, so every function and var
 --> Launched the Gradio app, opened the gradio.live link in its own tab (the embedded Colab panel didn't respond last time), and entered my Step 3 worked-example numbers.
 
 
---> Clicked Check My Budget. The output matched my hand-worked table and my assert tests for every category. [Screenshot]
+--> Clicked Check My Budget. The output matched my hand-worked table and my assert tests for every category. <img width="531" height="281" alt="Screenshot 2026-10-12 at 22 15 15" src="https://github.com/user-attachments/assets/caba2e24-3b53-4d52-936d-416589caf912" />
+
 
 
 --> Typed "Am I doing okay this month?" and clicked Ask once.
