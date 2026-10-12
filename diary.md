@@ -305,3 +305,50 @@ This is a genuine, unplanned example of the app handling an external failure gra
 **Problems I encountered and how I handled them:**
 NameError for api_key. My Colab runtime had restarted, so every function and variable was gone. My api_key and persona_instruction were originally set inside two test cells that also call Gemini, so I didn't want to re-run those and use up requests. I added a small setup cell that defines just those two variables and makes no API call. 503 "high demand" errors. My retry loop correctly tried 3 times and then gave my own "unavailable after multiple retries" message. The request went through on a later attempt. I avoided repeated re-runs because the free tier only allows 20 requests per day.
 
+
+
+
+**WEEK 7 — [12/10/2026]**
+**What I was trying to do:** Run the full pipeline through the Gradio interface for the first time with a real question: typed budget numbers, my two functions, the grounded prompt, a Gemini reply, all displayed in the app.
+
+
+**AI declaration:**
+
+
+--> Used Claude to give me the run order for my cells after my Colab runtime restarted, and to help me diagnose two errors I hit while getting the notebook running again. I ran everything myself and checked the reply's figures against my own Step 3 data.
+
+
+**What I did:**
+
+
+--> Restarted my notebook and ran only the definition cells (not Run all), to avoid spending Gemini requests on old test cells. The free tier only allows 20 requests per day.
+
+
+--> Launched the Gradio app, opened the gradio.live link in its own tab (the embedded Colab panel didn't respond last time), and entered my Step 3 worked-example numbers.
+
+
+--> Clicked Check My Budget. The output matched my hand-worked table and my assert tests for every category. [Screenshot]
+
+
+--> Typed "Am I doing okay this month?" and clicked Ask once.
+
+
+What it returned: A reply that used my actual figures. It said I had $1,426 left from $2,500 income, noticed that $900 of rent was still unpaid, and worked out a more realistic cushion of $526. It listed the three overspent categories with a total of $120 over, and gave a game plan for the rest of the month.<img width="1350" height="829" alt="Screenshot 2026-10-12 at 13 00 36" src="https://github.com/user-attachments/assets/2459ec3c-02b1-47da-80f1-7a371c0da696" />
+
+
+
+**What I checked:**I checked every figure in the reply against my Step 3 data before trusting it. The $1,074 spent, $1,426 remaining, $900 unpaid rent, $526 cushion, the $120 total over budget, and the amounts left in Transport, Gym and Mobile data were all correct.
+
+
+**What I noticed and wouldn't rely on:** The reply suggested "an annual renewal" as the reason for my Subscription overspend. My app has no renewal data, so that was a guess by the model. I treat it as a coach asking a question, not a fact the app knows.
+
+
+**Problems I encountered and fixed:**
+NameError: name 'income' is not defined in my normal-case assert cell. I had set income = 2500 in a separate cell, so after the runtime restarted the asserts had nothing to read. I moved the line into the same cell as budgets and spending, so the test data lives in one place.
+SyntaxError: invalid syntax in my Gradio cell. While adding comments I left a stray full stop between the closing bracket and the #, giving gr.Markdown("...").  # comment. Python read the . as the start of a method call. Removing it fixed the error.
+The embedded Colab panel showed nothing, but the app worked in a separate browser tab. I now test in the gradio.live tab.
+
+
+**Result:** The pipeline works end to end: typed numbers, my functions, a grounded reply. This is the first full run of the finished app, and it agrees with my Step 3 worked example at each stage.
+Next: One clean run of the whole notebook from the top, repo tidy (labs folder, collaborator check), a last read of the README and diary, then submit.
+
