@@ -123,6 +123,9 @@ Unspent from income: $1426
 Unused budget: $898
 
 
+.
+.
+
 
 **Question to the assistant: "Am I doing okay this month?"**
 
